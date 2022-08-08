@@ -62,3 +62,21 @@ func (c *ThreeScaleClient) ListApplications(accountID int64) (*ApplicationList, 
 	err = handleJsonResp(resp, http.StatusOK, applicationList)
 	return applicationList, err
 }
+
+// DeleteApplication Delete existing application
+func (c *ThreeScaleClient) DeleteApplication(id int64) error {
+	applicationEndpoint := fmt.Sprintf(appCreate, id)
+
+	req, err := c.buildDeleteReq(applicationEndpoint, nil)
+	if err != nil {
+		return err
+	}
+
+	resp, err := c.httpClient.Do(req)
+	if err != nil {
+		return err
+	}
+	defer resp.Body.Close()
+
+	return handleJsonResp(resp, http.StatusOK, nil)
+}
