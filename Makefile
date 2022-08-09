@@ -1,4 +1,4 @@
-PACKAGE_CLIENT = github.com/3scale/3scale-porta-go-client/client
+PACKAGE_CLIENT = github.com/Patryk-Stefanski/3scale-porta-go-client/client
 
 MKFILE_PATH := $(abspath $(lastword $(MAKEFILE_LIST)))
 PROJECT_PATH := $(patsubst %/,%,$(dir $(MKFILE_PATH)))
